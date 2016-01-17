@@ -1,5 +1,5 @@
 <?php
-include 'small_framwork.php';
+include 'small_framework.php';
 
 function is_mandelbrot($mandel) //CALCUL SI NOMBRE = ENSEMBLE MANDELBROT
 {
