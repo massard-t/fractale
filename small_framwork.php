@@ -7,17 +7,19 @@ class complex
 {
 	var $reel;
 	var $imag;
+	var $mod;
 
 	function __construct($reel, $imag)
 	{
 		if (is_numeric($reel) && is_numeric($imag)) {
 			$this->reel = $reel;
 			$this->imag = $imag;
+			$this->module();
 		} else {
 			return (false);
 		}
 	}
-	
+
 	function aff_simple()
 	{
 		if (($this->reel == 0) && ($this->imag != 0)) {
@@ -31,6 +33,22 @@ class complex
 				echo $this->reel." - ".substr($this->imag, 1)."i";
 			}
 		}
+	}
+
+	function module() //CALCUL MODULE COMPLEX
+	{
+		$this->mod = sqrt($this->reel**2 + $this->imag**2);
+	}
+
+	function add($clx)
+	{
+		$result = new complex($this->reel+$clx->reel, $this->imag+$clx->imag);
+		return ($result);
+	}
+
+	function mul($clx)
+	{
+		
 	}
 }
 
@@ -79,8 +97,11 @@ function is_mandelbrot($mandel) //CALCUL SI NOMBRE = ENSEMBLE MANDELBROT
 	return (255); //RETURN BLACK BECAUSE MANDELBROOOOOT
 }
 
-$ca = array('r' => $argv[1], 'im' => $argv[2]);
-$man = array('r' => $argv[1], //FLOAT
-			 'im' => $argv[2],//FLOAT
-			 'k' => $argv[3], //INTEGER
-			 'n' => $argv[4]);//INTEGER
+$complex = new complex($argv[1], $argv[2]);
+// $ca = array('r' => $argv[1], 'im' => $argv[2]);
+// $man = array('r' => $argv[1], //FLOAT
+			 // 'im' => $argv[2],//FLOAT
+			 // 'k' => $argv[3], //INTEGER
+			 // 'n' => $argv[4]);//INTEGER
+// $complex->module();
+var_dump($complex);
