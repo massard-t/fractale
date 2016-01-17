@@ -1,3 +1,4 @@
+<?php
 function is_mandelbrot($mandel) //CALCUL SI NOMBRE = ENSEMBLE MANDELBROT
 {
 	$cu = array('r' => 0,
@@ -12,3 +13,4 @@ function is_mandelbrot($mandel) //CALCUL SI NOMBRE = ENSEMBLE MANDELBROT
 	}
 	return (0); //RETURN BLACK BECAUSE MANDELBROOOOOT
 }
+?>
