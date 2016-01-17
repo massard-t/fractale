@@ -62,6 +62,19 @@ class complex
 		}
 		return ($crep);
 	}
+
+	function is_mandelbrot($n, $k)
+	{
+		$cu = new complex(0,0);
+		$ca = $this;
+		for ($i=0; $i < $n; $i++) { 
+			$cu = ($cu->cpow($k))->add($ca);
+			if ($cu->mod > 2){
+				return (0);
+			}
+		}
+		return (1);
+	}
 }
 
 function cmod($reel, $imaginaire) //CALCUL MODULE COMPLEX
@@ -108,3 +121,4 @@ var_dump($clx);
 var_dump($result);
 $pow = $complex->cpow(3);
 $pow->aff_simple();
+echo $complex->is_mandelbrot(50, 2), "\n";
