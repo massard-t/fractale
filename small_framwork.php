@@ -20,7 +20,7 @@ class complex
 		}
 	}
 
-	function aff_simple()
+	function aff_simple() // AFFICHAGE COMPLEX
 	{
 		if (($this->reel == 0) && ($this->imag != 0)) {
 			echo $this->imag. "i";
@@ -40,15 +40,18 @@ class complex
 		$this->mod = sqrt($this->reel**2 + $this->imag**2);
 	}
 
-	function add($clx)
+	function add($clx) // ADDITION COMPLEX
 	{
 		$result = new complex($this->reel+$clx->reel, $this->imag+$clx->imag);
 		return ($result);
 	}
 
-	function mul($clx)
+	function mul($clx) // MULTIPLICATION COMPLEX
 	{
-		
+		$rsltreel = (($this->reel*$clx->reel) - ($this->imag*$clx->imag));
+		$rsltimag = (($this->reel*$clx->imag) + ($this->imag*$clx->reel));
+		$result  = new complex($rsltreel,$rsltimag);
+		return ($result);
 	}
 }
 
@@ -98,6 +101,8 @@ function is_mandelbrot($mandel) //CALCUL SI NOMBRE = ENSEMBLE MANDELBROT
 }
 
 $complex = new complex($argv[1], $argv[2]);
+$clx = new complex($argv[3], $argv[4]);
+$result = $complex->mul($complex);
 // $ca = array('r' => $argv[1], 'im' => $argv[2]);
 // $man = array('r' => $argv[1], //FLOAT
 			 // 'im' => $argv[2],//FLOAT
@@ -105,3 +110,6 @@ $complex = new complex($argv[1], $argv[2]);
 			 // 'n' => $argv[4]);//INTEGER
 // $complex->module();
 var_dump($complex);
+var_dump($clx);
+var_dump($result);
+echo $result->mod;
