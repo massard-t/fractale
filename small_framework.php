@@ -28,9 +28,9 @@ class complex
 			echo $this->reel;
 		} else {
 			if ($this->imag > 0) {
-				echo $this->reel." + ".$this->imag."i";
+				echo $this->reel." + ".$this->imag."i\n";
 			} else {
-				echo $this->reel." - ".substr($this->imag, 1)."i";
+				echo $this->reel." - ".substr($this->imag, 1)."i\n";
 			}
 		}
 	}
@@ -68,13 +68,20 @@ class complex
 		$cu = new complex(0,0);
 		$ca = $this;
 		for ($i=0; $i < $n; $i++) { 
-			$cu = ($cu->cpow($k))->add($ca);
-			if ($cu->mod > 2){
-				return (0);
+			$square_cu = $cu->cpow($k);
+			$cu = ($square_cu->add($ca));
+			if (($cu->mod) > 2){
+				return (mandelpercent($i, $n));
 			}
 		}
-		return (1);
+		return (255);
 	}
+}
+
+function mandelpercent($iter, $max)
+{
+	$rslt = ($iter*255) / $max;
+	return ($rslt);
 }
 
 function cmod($reel, $imaginaire) //CALCUL MODULE COMPLEX
