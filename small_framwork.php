@@ -1,5 +1,39 @@
 <?php
 //THANKS TO MY BUDDY MATTHEW FOR HELPING ME LIKE A FAG
+/**
+* 
+*/
+class complex
+{
+	var $reel;
+	var $imag;
+
+	function __construct($reel, $imag)
+	{
+		if (is_numeric($reel) && is_numeric($imag)) {
+			$this->reel = $reel;
+			$this->imag = $imag;
+		} else {
+			return (false);
+		}
+	}
+	
+	function aff_simple()
+	{
+		if (($this->reel == 0) && ($this->imag != 0)) {
+			echo $this->imag. "i";
+		} elseif (($this->reel != 0) && ($this->imag == 0)) {
+			echo $this->reel;
+		} else {
+			if ($this->imag > 0) {
+				echo $this->reel." + ".$this->imag."i";
+			} else {
+				echo $this->reel." - ".substr($this->imag, 1)."i";
+			}
+		}
+	}
+}
+
 function cmod($reel, $imaginaire) //CALCUL MODULE COMPLEX
 {
 	$module = sqrt($reel**2 + $imaginaire**2);
