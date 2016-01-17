@@ -35,14 +35,16 @@ class complex
 		}
 	}
 
+	function conjug()
+	{
+		$conj = new complex($this->reel, -$this->imag);
+		return $conj;
+	}
+
+
 	function module() //CALCUL MODULE COMPLEX
 	{
 		$this->mod = sqrt($this->reel**2 + $this->imag**2);
-	}
-
-	function conjuge()
-	{
-		return new complex($this->reel, -$this->imag);
 	}
 
 	function add($clx) // ADDITION COMPLEX
