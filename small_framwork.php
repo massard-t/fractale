@@ -53,6 +53,15 @@ class complex
 		$result  = new complex($rsltreel,$rsltimag);
 		return ($result);
 	}
+
+	function cpow($k)
+	{
+		$crep = $this;
+		for ($i=1; $i < $k; $i++) { 
+			$crep = $crep->mul($this);
+		}
+		return ($crep);
+	}
 }
 
 function cmod($reel, $imaginaire) //CALCUL MODULE COMPLEX
@@ -76,14 +85,14 @@ function cmul($c_a, $c_b) // CALCUL MULTIPLICATION COMPLEX
 	return ($cmul);
 }
 
-function cpow($comp, $k) // CALCUL PUISSANCE COMPLEX
-{
-	$crep = $comp;
-	for ($i=1; $i < $k; $i++) { 
-		$crep = cmul($crep, $comp);
-	}
-	return ($crep);
-}
+// function cpow($comp, $k) // CALCUL PUISSANCE COMPLEX
+// {
+// 	$crep = $comp;
+// 	for ($i=1; $i < $k; $i++) { 
+// 		$crep = cmul($crep, $comp);
+// 	}
+// 	return ($crep);
+// }
 
 function is_mandelbrot($mandel) //CALCUL SI NOMBRE = ENSEMBLE MANDELBROT
 {
@@ -112,4 +121,5 @@ $result = $complex->mul($complex);
 var_dump($complex);
 var_dump($clx);
 var_dump($result);
-echo $result->mod;
+$pow = $complex->cpow(3);
+$pow->aff_simple();
