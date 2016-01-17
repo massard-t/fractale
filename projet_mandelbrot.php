@@ -13,4 +13,6 @@ function is_mandelbrot($mandel) //CALCUL SI NOMBRE = ENSEMBLE MANDELBROT
 	}
 	return (0); //RETURN BLACK BECAUSE MANDELBROOOOOT
 }
+
+$mandel = array()
 ?>
