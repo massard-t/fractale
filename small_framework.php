@@ -40,6 +40,11 @@ class complex
 		$this->mod = sqrt($this->reel**2 + $this->imag**2);
 	}
 
+	function conjuge()
+	{
+		return new complex($this->reel, -$this->imag);
+	}
+
 	function add($clx) // ADDITION COMPLEX
 	{
 		$result = new complex($this->reel+$clx->reel, $this->imag+$clx->imag);
