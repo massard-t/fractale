@@ -22,4 +22,3 @@ $mandel = array('r' => $argv[1],
 		'k' => $argv[4]);
 		
 echo is_mandelbrot($mandel);
-?>
