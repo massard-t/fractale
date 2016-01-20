@@ -8,6 +8,7 @@ class complex
 	var $reel;
 	var $imag;
 	var $mod;
+	var $arg;
 
 	function __construct($reel, $imag)
 	{
@@ -15,6 +16,7 @@ class complex
 			$this->reel = $reel;
 			$this->imag = $imag;
 			$this->module();
+			$this->argument();
 		} else {
 			return (false);
 		}
@@ -45,6 +47,11 @@ class complex
 	function module() //CALCUL MODULE COMPLEX
 	{
 		$this->mod = sqrt($this->reel**2 + $this->imag**2);
+	}
+
+	function argument()
+	{
+		$this->arg = atan2($this->imag, $this->reel);
 	}
 
 	function add($clx) // ADDITION COMPLEX
