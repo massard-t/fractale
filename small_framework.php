@@ -1,7 +1,6 @@
 <?php
-//THANKS TO MY BUDDY MATTHEW FOR HELPING ME LIKE A FAG
 /**
-* 
+* written with the help of @deville-m
 */
 class complex
 {
@@ -91,55 +90,4 @@ class complex
 		return (255);
 	}
 }
-
-function mandelpercent($iter, $max)
-{
-	$rslt = ($iter*255) / $max;
-	return ($rslt);
-}
-
-function cmod($reel, $imaginaire) //CALCUL MODULE COMPLEX
-{
-	$module = sqrt($reel**2 + $imaginaire**2);
-	return ($module);
-}
-
-function cadd($c_a, $c_b) // CALCUL ADDITION COMPLEX
-{
-	$cadd = array('r' => ($c_a['r'] + $c_b['r']),
-				  'im' => ($c_a['im'] + $c_b['im']));
-	return ($cadd);
-}
-
-function cmul($c_a, $c_b) // CALCUL MULTIPLICATION COMPLEX
-{
-	$cmul = array(
-		'r' => (($c_a['r'] * $c_b['r']) - ($c_a['im'] * $c_b['im'])),
-		'im' => (($c_a['r'] * $c_b['im']) + ($c_a['im'] * $c_b['r'])));
-	return ($cmul);
-}
-
-// function cpow($comp, $k) // CALCUL PUISSANCE COMPLEX
-// {
-// 	$crep = $comp;
-// 	for ($i=1; $i < $k; $i++) { 
-// 		$crep = cmul($crep, $comp);
-// 	}
-// 	return ($crep);
-// }
-
-$complex = new complex($argv[1], $argv[2]);
-$clx = new complex($argv[3], $argv[4]);
-$result = $complex->mul($complex);
-// $ca = array('r' => $argv[1], 'im' => $argv[2]);
-// $man = array('r' => $argv[1], //FLOAT
-			 // 'im' => $argv[2],//FLOAT
-			 // 'k' => $argv[3], //INTEGER
-			 // 'n' => $argv[4]);//INTEGER
-// $complex->module();
-var_dump($complex);
-var_dump($clx);
-var_dump($result);
-$pow = $complex->cpow(3);
-$pow->aff_simple();
-echo $complex->is_mandelbrot(50, 2), "\n";
+?>
