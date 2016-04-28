@@ -46,11 +46,13 @@ class complex
 	function module() //CALCUL MODULE COMPLEX
 	{
 		$this->mod = sqrt($this->reel**2 + $this->imag**2);
+		return ($this->mod);
 	}
 
 	function argument()
 	{
 		$this->arg = atan2($this->imag, $this->reel);
+		return ($this->arg);
 	}
 
 	function add($clx) // ADDITION COMPLEX
